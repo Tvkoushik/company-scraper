@@ -3,12 +3,13 @@ import json
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 
+
 SHEET_NAME = '2022-11-25 - LinkedIn Contacts'
 SHEET_NUMBER = 1
 API_KEY = '89f99489c4bd94c7b1152dc941875fd0'
 API_SECRET = '8489e0bb76c4a17923b0d474297ed17a'
-CELL_START_RANGE = 10491
-CELL_END_RANGE = 10564
+CELL_START_RANGE = 12588
+CELL_END_RANGE = 12596
 AUTH_JSON = 'koushik-349314-a25511eedd39.json'
 
 # defining the scope of the application
@@ -70,7 +71,7 @@ def get_emails_from_url(url):
 def fill_sheet(CELL_START_RANGE, CELL_END_RANGE):
     for i in range(CELL_START_RANGE, CELL_END_RANGE):
         linked_url = sheet_instance.acell('I'+str(i)).value
-        email = sheet_instance.acell('K'+str(i)).value
+        email = sheet_instance.acell('L'+str(i)).value
         if linked_url is None or email is not None:
             print('Skipping the Row')
             continue
@@ -95,11 +96,11 @@ def fill_sheet(CELL_START_RANGE, CELL_END_RANGE):
                 new_email = new_email[0:-1]
 
             except Exception as e:
-                print("Email Not Found", e)
-                raise (e)
+                print('Could not find details')
+                continue
             sheet_instance.update_acell('H'+str(i), name)
             sheet_instance.update_acell('G'+str(i), title)
-            sheet_instance.update_acell('K'+str(i), new_email)
+            sheet_instance.update_acell('L'+str(i), new_email)
             sheet_instance.update_acell('B'+str(i), category)
             print(f'Updated Email for {linked_url} is {new_email}')
             print(f'Updated Name for {linked_url} is {name}')
