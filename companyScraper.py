@@ -1,7 +1,6 @@
 import requests
 import json
 import gspread
-import pandas as pd
 from oauth2client.service_account import ServiceAccountCredentials
 
 SHEET_NAME = '2022-11-25 - LinkedIn Contacts'
