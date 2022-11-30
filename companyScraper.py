@@ -8,8 +8,8 @@ SHEET_NAME = '2022-11-25 - LinkedIn Contacts'
 SHEET_NUMBER = 1
 API_KEY = '89f99489c4bd94c7b1152dc941875fd0'
 API_SECRET = '8489e0bb76c4a17923b0d474297ed17a'
-CELL_START_RANGE = 12588
-CELL_END_RANGE = 12596
+CELL_START_RANGE = 12596
+CELL_END_RANGE = 12692
 AUTH_JSON = 'koushik-349314-a25511eedd39.json'
 
 # defining the scope of the application
@@ -88,11 +88,7 @@ def fill_sheet(CELL_START_RANGE, CELL_END_RANGE):
                     new_email += 'Email Not Found,'
                 else:
                     for prospect in email_list:
-                        if prospect['status'] != 'valid':
-                            new_email += prospect['email'] + \
-                                f" (Email Verification Status : {prospect['status']}),"
-                        else:
-                            new_email += prospect['email']+','
+                        new_email += prospect['email']+','
                 new_email = new_email[0:-1]
 
             except Exception as e:
