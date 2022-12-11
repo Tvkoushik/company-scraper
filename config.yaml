@@ -1,0 +1,12 @@
+sheetName : 2022-11-25 - LinkedIn Contacts
+sheetNumber : 1
+apiKey : 89f99489c4bd94c7b1152dc941875fd0
+apiSecret : 8489e0bb76c4a17923b0d474297ed17a
+startRange : 13769
+endRange : 13868
+authJson : koushik-349314-a25511eedd39.json
+linkedinColumn : K
+emailColumn : N
+nameColumn : I
+titleColumn : H
+categoryColumn : B
