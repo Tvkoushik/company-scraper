@@ -3,6 +3,7 @@ import json
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 import yaml
+import beepy as beep
 
 
 with open("config.yaml", "r") as f:
@@ -101,6 +102,7 @@ def fill_sheet(CELL_START_RANGE, CELL_END_RANGE):
                 new_email = new_email[0:-1]
 
             except Exception as e:
+                beep.beep(3)
                 print('Could not find details')
                 continue
             sheet_instance.update_acell(NAME_COL + str(i), name)
