@@ -46,12 +46,15 @@ def get_access_token():
         'client_id': API_KEY,
         'client_secret': API_SECRET
     }
-
-    res = requests.post(
+    try:
+        res = requests.post(
         'https://api.snov.io/v1/oauth/access_token', data=params)
-    resText = res.text.encode('ascii', 'ignore')
+        resText = res.text.encode('ascii', 'ignore')
 
-    return json.loads(resText)['access_token']
+        return json.loads(resText)['access_token']
+    except Exception as e:
+        beep.beep(3)
+        raise(e)
 
 
 def add_url_for_search(url):
